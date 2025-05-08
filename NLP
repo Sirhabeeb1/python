@@ -1,0 +1,130 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "private_outputs": true,
+      "provenance": [],
+      "authorship_tag": "ABX9TyM94nTzHdyYvIrbGs22uS7F",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Sirhabeeb1/python/blob/main/NLP\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "x7RFWyhPDl4k"
+      },
+      "outputs": [],
+      "source": [
+        "from transformers import pipeline"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "classifier = pipeline(\"sentiment-analysis\")\n",
+        "classifier(\"hugging face is the best hub to learn Natural language processing\")"
+      ],
+      "metadata": {
+        "id": "w9NvpcfaDw4a"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "classifier(\n",
+        "    [\"I've been waiting for a HuggingFace course my whole life.\", \"I hate this so much!\", \"best to learn Natural language process\"]\n",
+        ")"
+      ],
+      "metadata": {
+        "id": "cnqyQOrQGJZ0"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "Zero_shot = pipeline(\"zero-shot-classification\")\n",
+        "Zero_shot(\n",
+        "    \"This is a course about the Transformers library\",\n",
+        "    candidate_labels=[\"education\", \"politics\", \"business\"],\n",
+        ")"
+      ],
+      "metadata": {
+        "id": "lHG6jZivGTpO"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "generator = pipeline(\"text-generation\")\n",
+        "generator(\"Habeeb is a programmer specialize on\")"
+      ],
+      "metadata": {
+        "id": "_rfFpGYNJ01-"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "Unmask = pipeline(\"fill-mask\")\n",
+        "Unmask(\"Habeeb is a programmer specialize on <mask> language\", top_k = 2)"
+      ],
+      "metadata": {
+        "id": "OzPAZ-SgLM0z"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "question_answering = pipeline(\"question-answering\")\n",
+        "question_answering(\n",
+        "    question=\"Where do I work?\",\n",
+        "    context=\"Habeeb is a programmer specialize on python language and work in Microsoft\",\n",
+        ")"
+      ],
+      "metadata": {
+        "id": "qzRdc6hWM_8T"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "Rf2rP5NgOaEO"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
